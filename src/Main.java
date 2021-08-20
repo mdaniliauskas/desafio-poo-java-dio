@@ -1,9 +1,11 @@
 import dio_desafio_dominio.Curso;
+import dio_desafio_dominio.Dev;
 import dio_desafio_dominio.Mentoria;
+import dio_desafio_dominio.Bootcamp;
 import dio_desafio_dominio.Conteudo;
 
 import java.time.LocalDate;
-import java.util.List;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -23,10 +25,41 @@ public class Main {
         mentoria.setCargaHoraria(2);
         mentoria.setData(LocalDate.now());
         
-        //System.out.println(curso1);
-        //System.out.println(curso2);
+        Bootcamp bootcamp = new Bootcamp();
+        bootcamp.setNome("Bootcamp Desenvolvedor Java");
+        bootcamp.setDescricao("Descrição Bootcamp Desenvolvedor Java");
+        bootcamp.getConteudos().add(curso1);
+        bootcamp.getConteudos().add(curso2);
+        bootcamp.getConteudos().add(mentoria);
 
-        System.out.println(mentoria);
+        Dev devMarcelo = new Dev();
+        devMarcelo.setNome("Marcelo");
+        devMarcelo.inscreverBootcamp(bootcamp);
+        System.out.println("Conteúdos inscritos" + devMarcelo.getConteudosInscritos());
+        devMarcelo.progredir();
+        devMarcelo.progredir();
+        devMarcelo.progredir();
+        System.out.println("Conteúdos inscritos" + devMarcelo.getConteudosInscritos());
+        System.out.println("-");
+        System.out.println("Conteúdos concluidos" + devMarcelo.getConteudosConcluidos());
+        System.out.println("XP: " + devMarcelo.calcularTotalXp());
+
+        System.out.println("----------------");
+
+        Dev devCamila = new Dev();
+        devCamila.setNome("Camila");
+        devCamila.inscreverBootcamp(bootcamp);
+        System.out.println("Conteúdos inscritos" + devCamila.getConteudosInscritos());
+        devCamila.progredir();
+        System.out.println("-");
+        System.out.println("Conteúdos inscritos" + devCamila.getConteudosInscritos());
+        System.out.println("Conteúdos concluidos" + devCamila.getConteudosConcluidos());
+        System.out.println("XP: " + devCamila.calcularTotalXp());
+
+
+
+
+
     }
 }
 
