@@ -1,7 +1,9 @@
 import dio_desafio_dominio.Curso;
 import dio_desafio_dominio.Mentoria;
+import dio_desafio_dominio.Conteudo;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
